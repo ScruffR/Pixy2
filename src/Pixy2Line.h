@@ -46,7 +46,7 @@
 
 #define LINE_MAX_INTERSECTION_LINES              6
 
-struct pixyVector
+struct PixyVector
 {
   void print()
   {
@@ -135,7 +135,7 @@ public:
   int8_t reverseVector();
   
   uint8_t numVectors;
-  pixyVector *vectors;
+  PixyVector *vectors;
   
   uint8_t numIntersections;
   Intersection *intersections;
@@ -184,8 +184,8 @@ template <class LinkType> int8_t Pixy2Line<LinkType>::getFeatures(uint8_t type, 
           fdata = &m_pixy->m_buf[offset+2]; 
           if (ftype==LINE_VECTOR)
           {
-            vectors = (pixyVector *)fdata;
-            numVectors = fsize/sizeof(pixyVector);
+            vectors = (PixyVector *)fdata;
+            numVectors = fsize/sizeof(PixyVector);
             res |= LINE_VECTOR;
 		      }
 		      else if (ftype==LINE_INTERSECTION)

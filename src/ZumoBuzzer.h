@@ -176,6 +176,13 @@ class ZumoBuzzer
   // initializes timer1 for buzzer control
   static void init2();
   static void init();
+  
+#if defined(PARTICLE)
+  static int bpm;
+  static void setBPM(int beats_per_minute);
+  static void playSong(const char* song);
+  static void playNote(const char* note, int duration);
+#endif
 };
 
 #endif
